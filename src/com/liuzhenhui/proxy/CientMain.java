@@ -20,5 +20,17 @@ public class CientMain {
 		proxy1.request();
 	}
 	
+	/**
+	 * 动态代理实现
+	 */
+	@Test
+	public void dynamicProxy(){
+		RealSubject realSubject = new RealSubject();
+		DynamicProxy invocationHandler = new DynamicProxy();
+		//获取目标类的代理类
+		Object object = invocationHandler.blind(realSubject);
+		Subject subject = (Subject)object;
+		subject.request();
+	}
 	
 }
